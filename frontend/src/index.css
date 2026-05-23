@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --chart-grid: #F3F4F6;
+    --chart-text: #9CA3AF;
+    --chart-bg: #FFFFFF;
+    --chart-border: #E5E7EB;
+    --chart-tooltip-text: #111827;
+    --chart-primary: #E11D48;
+    --chart-secondary: #F59E0B;
+    --chart-success: #10B981;
+    --chart-error: #E11D48;
+  }
+  .dark {
+    --chart-grid: #1F2937;
+    --chart-text: #6B7280;
+    --chart-bg: #111827;
+    --chart-border: #374151;
+    --chart-tooltip-text: #F9FAFB;
+    --chart-primary: #E11D48;
+    --chart-secondary: #F59E0B;
+    --chart-success: #10B981;
+    --chart-error: #E11D48;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6, .ui-label {
+    line-height: 1.4;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.5); /* gray-400 */
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(107, 114, 128, 0.8); /* gray-500 */
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.5); /* gray-600 */
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.8); /* gray-400 */
+  }
+}
+
+@layer utilities {
+  .card-hover {
+    transition: transform 120ms ease-out, background-color 300ms ease, border-color 300ms ease;
+  }
+  .card-hover:hover {
+    transform: scale(1.005);
+  }
+
+  .btn-active {
+    transition: transform 80ms, background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+  }
+  .btn-active:active {
+    transform: scale(0.97);
+  }
+
+  .fade-in-row {
+    animation: fadeInRow 200ms ease-out forwards;
+  }
+  
+  .slide-in-row {
+    animation: slideInRow 150ms ease-out forwards;
+  }
+
+  .pulse-dot {
+    animation: dotPulse 1.5s infinite;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, rgba(243,244,246,0) 0%, rgba(229,231,235,1) 50%, rgba(243,244,246,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  .dark .shimmer {
+    background: linear-gradient(90deg, rgba(17,24,39,0) 0%, rgba(31,41,55,1) 50%, rgba(17,24,39,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dotPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
