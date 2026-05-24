@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { DashboardLayout } from './layouts/DashboardLayout';
 import { Dashboard } from './pages/Dashboard';
@@ -6,8 +7,20 @@ import { IncidentsPage } from './pages/IncidentsPage';
 import { LogsPage } from './pages/LogsPage';
 import { DeploymentsPage } from './pages/DeploymentsPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { LoginPage } from './pages/LoginPage';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  });
+
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={() => {
+      localStorage.setItem('isAuthenticated', 'true');
+      setIsAuthenticated(true);
+    }} />;
+  }
+
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout />}>

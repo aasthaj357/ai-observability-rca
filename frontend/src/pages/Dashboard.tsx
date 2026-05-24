@@ -71,13 +71,13 @@ export const Dashboard: React.FC = () => {
         
         {/* Right Column (1/3) */}
         <div className="lg:col-span-1 space-y-[24px] flex flex-col">
-          <div className="flex-1 min-h-[200px]">
+          <div className="w-full">
              <WebsiteMonitorPanel onTelemetryUpdate={(data) => console.log('Telemetry updated', data)} />
           </div>
-          <div className="flex-1 min-h-[250px]">
+          <div className="w-full">
              <SystemHealth activeIncident={!!activeIncident} />
           </div>
-          <div className="flex-1 min-h-[250px]">
+          <div className="w-full">
              <ActiveIncidentsPanel incidents={incidents.filter(i => i.status === 'Active')} />
           </div>
         </div>

@@ -8,7 +8,8 @@ import {
   Settings, 
   TerminalSquare,
   Sparkles,
-  Flame
+  Flame,
+  LogOut
 } from 'lucide-react';
 
 const navItems = [
@@ -56,14 +57,26 @@ export const Sidebar: React.FC = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-rose-600 dark:bg-rose-500 pulse-dot"></span>
         </button>
 
-        <div className="flex items-center space-x-3 px-2">
-          <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold text-[13px] transition-colors duration-300">
-            A
+        <div className="flex items-center justify-between px-2 mt-4">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold text-[13px] transition-colors duration-300">
+              A
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[13px] font-medium text-gray-900 dark:text-gray-100 leading-tight">Admin User</span>
+              <span className="text-[11px] text-gray-500 dark:text-gray-400">Platform Ops</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-[13px] font-medium text-gray-900 dark:text-gray-100 leading-tight">Admin User</span>
-            <span className="text-[11px] text-gray-500 dark:text-gray-400">Platform Ops</span>
-          </div>
+          <button 
+            onClick={() => {
+              localStorage.removeItem('isAuthenticated');
+              window.location.href = '/';
+            }}
+            className="p-1.5 text-gray-500 hover:text-rose-600 dark:text-gray-400 dark:hover:text-rose-500 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            title="Log Out"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </aside>
