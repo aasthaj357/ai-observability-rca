@@ -1,3 +1,5 @@
+PPT LINK:https://docs.google.com/presentation/d/1J6TUtu_sQiE5hc0zwvy3ykEXdW5RXjE6/edit?usp=share_link&ouid=102354484560233670405&rtpof=true&sd=true
+
 # 🚨 AI Observability RCA
 
 > Real-time website monitoring + AI-powered incident intelligence
